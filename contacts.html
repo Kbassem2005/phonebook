@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        <title>Phonebook</title>
+    </head>
+    <body>
+    <h1>Phonebook</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Phone_Number</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for person in contacts %}
+                <tr>
+                    <td>{{ person.name }}</td>
+                    <td>{{ person.phonenumber }}</td>
+                    <td>
+                        <form action="/delete" method="post">
+                            <input name="id" type="hidden" value="{{ person.id }}">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
